@@ -19,9 +19,10 @@ public class CompetitionsParserServiceImpl implements CompetitionsParserService 
     @Override
     public List<Competition> toCompetitions(String jsonString) {
         JsonElement element = jsonParser.parse(jsonString);
-        if (element.isJsonArray())
-            return toCompetitions(element.getAsJsonArray());
-        return toCompetitions(element.getAsJsonObject());
+        JsonElement competitionsJson = ((JsonObject) element).get("competitions");
+        if (competitionsJson.isJsonArray())
+            return toCompetitions(competitionsJson.getAsJsonArray());
+        return toCompetitions(competitionsJson.getAsJsonObject());
     }
 
     @Override

@@ -1,5 +1,6 @@
 package am.soccer.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -10,7 +11,10 @@ import java.net.URL;
 
 @Service
 public class HttpClientServiceImpl implements HttpClientService {
-    
+
+    @Autowired
+    private TokenProviderService tokenProviderService;
+
     @Override
     public String get(String urlString) {
         URL url;
@@ -21,6 +25,7 @@ public class HttpClientServiceImpl implements HttpClientService {
             con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
 
+            con.setRequestProperty("X-Auth-Token", tokenProviderService.getToken());
 
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(con.getInputStream()));
@@ -38,5 +43,5 @@ public class HttpClientServiceImpl implements HttpClientService {
 
         return content.toString();
     }
-    
+
 }

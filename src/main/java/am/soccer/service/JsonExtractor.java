@@ -1,13 +1,18 @@
 package am.soccer.service;
 
 import am.soccer.model.FixtureStatus;
+import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 
@@ -32,6 +37,26 @@ public class JsonExtractor {
         if (element.isJsonNull())
             return 0;
         return element.getAsInt();
+    }
+    
+    public JsonObject extractJson(JsonObject json, String name) {
+        if (!json.has(name))
+            return null;
+        JsonElement element = json.get(name);
+        if (element.isJsonNull())
+            return null;
+        return element.getAsJsonObject();
+    }
+    
+    public List<JsonObject> extractList(JsonObject json, String name) {
+        if (!json.has(name))
+            return new ArrayList<>();
+        JsonElement element = json.get(name);
+        if (element.isJsonNull())
+            return new ArrayList<>();
+
+        Type listType = new TypeToken<List<JsonObject>>() {}.getType();
+        return new Gson().fromJson(element, listType);
     }
 
     public BigDecimal extractBigDecimal(JsonObject json, String name) {
@@ -58,6 +83,7 @@ public class JsonExtractor {
     }
 
     public LocalDateTime extractDateTime(JsonObject json, String name) {
+        if (json.get(name).isJsonNull()) return LocalDateTime.MAX;
         String dateString = json.get(name).getAsString();
         return LocalDateTime.parse(dateString, dateTimeFormatter);
     }
@@ -70,6 +96,7 @@ public class JsonExtractor {
     }
 
     public LocalDate extractLocalDate(JsonObject json, String name) {
+        if (json.get(name).isJsonNull()) return LocalDate.MAX;
         String dateString = json.get(name).getAsString();
         return LocalDate.parse(dateString, localDateFormatter);
     }

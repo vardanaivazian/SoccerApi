@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface CompetitionsParserService {
 
-    public List<Competition> toCompetitions(String jsonString);
+    List<Competition> toCompetitions(String jsonString);
 
-    public Competition toCompetition(String jsonString);
+    Competition toCompetition(String jsonString);
     
 }

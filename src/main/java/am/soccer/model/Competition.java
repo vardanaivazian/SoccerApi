@@ -1,87 +1,62 @@
 package am.soccer.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Competition {
-
-    private final String selfLink;
-    private final String teamsLink;
-    private final String fixturesLink;
-    private final String leagueTableLink;
-
+    
     private final int id;
+    private final Area area;
     private final String name;
-    private final String league;
-    private final String year;
-    private final int currentMatchDay;
-    private final int numberOfMatchDays;
-    private final int numberOfTeams;
-    private final int numberOfGames;
+    private final String code;
+    private final String plan;
+    private final Season currentSeason;
+    private final int numberOfAvailableSeasons;
+    private final List<Season> seasons;
     private final LocalDateTime lastUpdated;
 
     private Competition(CompetitionBuilder builder) {
-        this.selfLink = builder.selfLink;
-        this.teamsLink = builder.teamsLink;
-        this.fixturesLink = builder.fixturesLink;
-        this.leagueTableLink = builder.leagueTableLink;
-
         this.id = builder.id;
+        this.area = builder.area;
         this.name = builder.name;
-        this.league = builder.league;
-        this.year = builder.year;
-        this.currentMatchDay = builder.currentMatchDay;
-        this.numberOfMatchDays = builder.numberOfMatchDays;
-        this.numberOfTeams = builder.numberOfTeams;
-        this.numberOfGames = builder.numberOfGames;
+        this.code = builder.code;
+        this.plan = builder.plan;
+        this.currentSeason = builder.currentSeason;
+        this.seasons = builder.seasons;
+        this.numberOfAvailableSeasons = builder.numberOfAvailableSeasons;
         this.lastUpdated = builder.lastUpdated;
-    }
-
-    public String getSelfLink() {
-        return selfLink;
-    }
-
-    public String getTeamsLink() {
-        return teamsLink;
-    }
-
-    public String getFixturesLink() {
-        return fixturesLink;
-    }
-
-    public String getLeagueTableLink() {
-        return leagueTableLink;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getCaption() {
+    public Area getArea() {
+        return area;
+    }
+
+    public String getName() {
         return name;
     }
 
-    public String getLeague() {
-        return league;
+    public String getCode() {
+        return code;
     }
 
-    public String getYear() {
-        return year;
+    public String getPlan() {
+        return plan;
     }
 
-    public int getCurrentMatchDay() {
-        return currentMatchDay;
+    public Season getCurrentSeason() {
+        return currentSeason;
     }
 
-    public int getNumberOfMatchDays() {
-        return numberOfMatchDays;
+    public List<Season> getSeasons() {
+        return seasons;
     }
 
-    public int getNumberOfTeams() {
-        return numberOfTeams;
-    }
-
-    public int getNumberOfGames() {
-        return numberOfGames;
+    public int getNumberOfAvailableSeasons() {
+        return numberOfAvailableSeasons;
     }
 
     public LocalDateTime getLastUpdated() {
@@ -90,82 +65,57 @@ public class Competition {
 
     public static class CompetitionBuilder {
 
-        private String selfLink;
-        private String teamsLink;
-        private String fixturesLink;
-        private String leagueTableLink;
-
         private int id;
+        private Area area;
         private String name;
-        private String league;
-        private String year;
-        private int currentMatchDay;
-        private int numberOfMatchDays;
-        private int numberOfTeams;
-        private int numberOfGames;
+        private String code;
+        private String plan;
+        private Season currentSeason;
+        private int numberOfAvailableSeasons;
+        private List<Season> seasons;
         private LocalDateTime lastUpdated;
 
-        public CompetitionBuilder setSelfLink(String selfLink) {
-            this.selfLink = selfLink;
-            return this;
-        }
-
-        public CompetitionBuilder setTeamsLink(String teamsLink) {
-            this.teamsLink = teamsLink;
-            return this;
-        }
-
-        public CompetitionBuilder setFixturesLink(String fixturesLink) {
-            this.fixturesLink = fixturesLink;
-            return this;
-        }
-
-        public CompetitionBuilder setLeagueTableLink(String leagueTableLink) {
-            this.leagueTableLink = leagueTableLink;
-            return this;
-        }
-
-        public CompetitionBuilder setId(int id) {
+        public CompetitionBuilder Id(int id) {
             this.id = id;
             return this;
         }
+        
+        public CompetitionBuilder Area(Area area) {
+            this.area = area;
+            return this;
+        }
 
-        public CompetitionBuilder setCaption(String name) {
+        public CompetitionBuilder Name(String name) {
             this.name = name;
             return this;
         }
-
-        public CompetitionBuilder setLeague(String league) {
-            this.league = league;
+        
+        public CompetitionBuilder Code(String code) {
+            this.code = code;
+            return this;
+        }
+        
+        public CompetitionBuilder Plan(String plan) {
+            this.plan = plan;
+            return this;
+        }
+        
+        public CompetitionBuilder CurrentSeason(Season currentSeason) {
+            this.currentSeason = currentSeason;
+            return this;
+        }
+        
+        public CompetitionBuilder Seasons(List<Season> seasons) {
+            this.seasons = seasons;
             return this;
         }
 
-        public CompetitionBuilder setYear(String year) {
-            this.year = year;
+        public CompetitionBuilder NumberOfAvailableSeasons(int numberOfAvailableSeasons) {
+            this.numberOfAvailableSeasons = numberOfAvailableSeasons;
             return this;
         }
 
-        public CompetitionBuilder setCurrentMatchDay(int currentMatchday) {
-            this.currentMatchDay = currentMatchday;
-            return this;
-        }
-
-        public CompetitionBuilder setNumberOfMatchDays(int numberOfMatchDays) {
-            this.numberOfMatchDays = numberOfMatchDays;
-            return this;
-        }
-
-        public CompetitionBuilder setNumberOfTeams(int numberOfTeams) {
-            this.numberOfTeams = numberOfTeams;
-            return this;
-        }
-
-        public CompetitionBuilder setNumberOfGames(int numberOfGames) {
-            this.numberOfGames = numberOfGames;
-            return this;
-        }
-
-        public CompetitionBuilder setLastUpdated(LocalDateTime lastUpdated) {
+        public CompetitionBuilder LastUpdated(LocalDateTime lastUpdated) {
             this.lastUpdated = lastUpdated;
             return this;
         }

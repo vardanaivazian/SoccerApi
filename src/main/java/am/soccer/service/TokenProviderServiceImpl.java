@@ -14,11 +14,12 @@ public class TokenProviderServiceImpl implements TokenProviderService {
 
     @Override
     public String getToken() {
-        Map<String, String> environmentVariables = System.getenv();
+        /*Map<String, String> environmentVariables = System.getenv();
         if (!environmentVariables.containsKey(TOKEN_VARIABLE_NAME))
             return EMPTY;
 
-        return environmentVariables.get(TOKEN_VARIABLE_NAME);
+        return environmentVariables.get(TOKEN_VARIABLE_NAME);*/
+        return TOKEN_VARIABLE_NAME;
     }
 
     @Override

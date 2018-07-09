@@ -2,7 +2,7 @@ package am.soccer.service.competition;
 
 import am.soccer.model.Competition;
 import am.soccer.service.EndpointProviderService;
-import am.soccer.service.HttpClientService;
+import am.soccer.service.RestClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,21 +15,24 @@ public class CompetitionServiceImpl implements CompetitionService {
     private CompetitionsParserService parser;
     
     @Autowired
-    private HttpClientService httpClientService;
+    private EndpointProviderService endpointProviderService;
     
     @Autowired
-    private EndpointProviderService endpointProviderService;
+    private RestClientService restClientService;
 
+    
+    
+    @Override
     public List<Competition> load() {
 
-        String s = httpClientService.get(endpointProviderService.getCompetitions());
+        String s = restClientService.get(endpointProviderService.getCompetitions());
         return parser.toCompetitions(s);
     }
 
+    @Override
     public Competition load(int id) {
         String endpoint = endpointProviderService.getCompetition(id);
-        String s = httpClientService.get(endpoint);
+        String s = restClientService.get(endpoint);
         return parser.toCompetition(s);
     }
-    
 }

@@ -21,6 +21,11 @@ public class EndpointProviderServiceImpl implements EndpointProviderService{
     public String getCompetition(int competitionId) {
         return getCompetitions() + competitionId + "/";
     }
+    
+    @Override
+    public String getStandings(int competitionId) {
+        return getCompetitions() + competitionId + "/standings";
+    }
 
     @Override
     public String getTeams(int competitionId) {

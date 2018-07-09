@@ -18,8 +18,13 @@ public class TeamServiceImpl implements TeamService {
     
     @Autowired
     private EndpointProviderService endpointProvider;
-    
-    
+
+
+    @Override
+    public List<Team> load() {
+        return null;
+    }
+
     @Override
     public List<Team> loadCompetitionTeams(int competitionId) {
         String endpoint = endpointProvider.getTeams(competitionId);
