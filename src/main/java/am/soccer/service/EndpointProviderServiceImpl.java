@@ -28,13 +28,18 @@ public class EndpointProviderServiceImpl implements EndpointProviderService{
     }
 
     @Override
+    public String getTeams() {
+        return BASE_URL + "teams/";
+    }
+
+    @Override
     public String getTeams(int competitionId) {
         return getCompetition(competitionId) + "teams/";
     }
 
     @Override
     public String getTeam(int teamId) {
-        return BASE_URL + "teams/" + teamId + "/";
+        return getTeams() + teamId + "/";
     }
 
     @Override

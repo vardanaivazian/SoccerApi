@@ -1,26 +1,31 @@
 package am.soccer.model;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Player {
 
+    private final int id;
     private final String name;
     private final String position;
-    private final int jerseyNumber;
-    private final LocalDate dateOfBirth;
+    private final LocalDateTime dateOfBirth;
+    private final String countryOfBirth;
     private final String nationality;
-    private final LocalDate contractUntil;
-    private final BigDecimal marketValue;
+    private final String role;
 
     private Player(PlayerBuilder builder) {
+        
+        this.id = builder.id;
         this.name = builder.name;
         this.position = builder.position;
-        this.jerseyNumber = builder.jerseyNumber;
         this.dateOfBirth = builder.dateOfBirth;
         this.nationality = builder.nationality;
-        this.contractUntil = builder.contractUntil;
-        this.marketValue = builder.marketValue;
+        this.countryOfBirth = builder.countryOfBirth;
+        this.role = builder.role;
+    }
+
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -31,70 +36,68 @@ public class Player {
         return position;
     }
 
-    public int getJerseyNumber() {
-        return jerseyNumber;
+    public LocalDateTime getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
+    public String getCountryOfBirth() {
+        return countryOfBirth;
     }
 
     public String getNationality() {
         return nationality;
     }
 
-    public LocalDate getContractUntil() {
-        return contractUntil;
-    }
-
-    public BigDecimal getMarketValue() {
-        return marketValue;
+    public String getRole() {
+        return role;
     }
 
     public static class PlayerBuilder {
 
+        private int id;
         private String name;
         private String position;
-        private int jerseyNumber;
-        private LocalDate dateOfBirth;
+        private LocalDateTime dateOfBirth;
+        private String countryOfBirth;
         private String nationality;
-        private LocalDate contractUntil;
-        private BigDecimal marketValue;
+        private String role;
 
-        public PlayerBuilder setName(String name) {
+        public PlayerBuilder id(int id) {
+            this.id = id;
+            return this;
+        }
+
+        
+        public PlayerBuilder name(String name) {
             this.name = name;
             return this;
         }
 
-        public PlayerBuilder setPosition(String position) {
+        public PlayerBuilder position(String position) {
             this.position = position;
             return this;
         }
 
-        public PlayerBuilder setJerseyNumber(int jerseyNumber) {
-            this.jerseyNumber = jerseyNumber;
-            return this;
-        }
-
-        public PlayerBuilder setDateOfBirth(LocalDate dateOfBirth) {
+        public PlayerBuilder dateOfBirth(LocalDateTime dateOfBirth) {
             this.dateOfBirth = dateOfBirth;
             return this;
         }
+        
+        public PlayerBuilder countryOfBirth(String countryOfBirth) {
+            this.countryOfBirth = countryOfBirth;
+            return this;
+        }
 
-        public PlayerBuilder setNationality(String nationality) {
+        public PlayerBuilder nationality(String nationality) {
             this.nationality = nationality;
             return this;
         }
 
-        public PlayerBuilder setContractUntil(LocalDate contractUntil) {
-            this.contractUntil = contractUntil;
+        public PlayerBuilder role(String role) {
+            this.role = role;
             return this;
         }
 
-        public PlayerBuilder setMarketValue(BigDecimal marketValue) {
-            this.marketValue = marketValue;
-            return this;
-        }
 
         public Player build() {
             return new Player(this);

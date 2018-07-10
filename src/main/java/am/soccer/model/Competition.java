@@ -75,47 +75,47 @@ public class Competition {
         private List<Season> seasons;
         private LocalDateTime lastUpdated;
 
-        public CompetitionBuilder Id(int id) {
+        public CompetitionBuilder id(int id) {
             this.id = id;
             return this;
         }
         
-        public CompetitionBuilder Area(Area area) {
+        public CompetitionBuilder area(Area area) {
             this.area = area;
             return this;
         }
 
-        public CompetitionBuilder Name(String name) {
+        public CompetitionBuilder name(String name) {
             this.name = name;
             return this;
         }
         
-        public CompetitionBuilder Code(String code) {
+        public CompetitionBuilder code(String code) {
             this.code = code;
             return this;
         }
         
-        public CompetitionBuilder Plan(String plan) {
+        public CompetitionBuilder plan(String plan) {
             this.plan = plan;
             return this;
         }
         
-        public CompetitionBuilder CurrentSeason(Season currentSeason) {
+        public CompetitionBuilder currentSeason(Season currentSeason) {
             this.currentSeason = currentSeason;
             return this;
         }
         
-        public CompetitionBuilder Seasons(List<Season> seasons) {
+        public CompetitionBuilder seasons(List<Season> seasons) {
             this.seasons = seasons;
             return this;
         }
 
-        public CompetitionBuilder NumberOfAvailableSeasons(int numberOfAvailableSeasons) {
+        public CompetitionBuilder numberOfAvailableSeasons(int numberOfAvailableSeasons) {
             this.numberOfAvailableSeasons = numberOfAvailableSeasons;
             return this;
         }
 
-        public CompetitionBuilder LastUpdated(LocalDateTime lastUpdated) {
+        public CompetitionBuilder lastUpdated(LocalDateTime lastUpdated) {
             this.lastUpdated = lastUpdated;
             return this;
         }

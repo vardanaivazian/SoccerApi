@@ -6,8 +6,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class PlayerParser {
 
@@ -22,14 +22,18 @@ public class PlayerParser {
 
     public Player toPlayer(JsonObject json) {
         return new Player.PlayerBuilder()
-                .setName(parseName(json))
-                .setPosition(parsePosition(json))
-                .setJerseyNumber(parseJerseyNumber(json))
-                .setDateOfBirth(parseDateOfBirth(json))
-                .setNationality(parseNationality(json))
-                .setContractUntil(parseContractUntil(json))
-                .setMarketValue(parseMarketValue(json))
+                .id(parseId(json))
+                .name(parseName(json))
+                .position(parsePosition(json))
+                .dateOfBirth(parseDateOfBirth(json))
+                .countryOfBirth(parseCountryOfBirth(json))
+                .role(parseRole(json))
+                .nationality(parseNationality(json))
                 .build();
+    }
+
+    private int parseId(JsonObject json) {
+        return extractor.extractInt(json, "id");
     }
 
     private String parseName(JsonObject json) {
@@ -40,24 +44,19 @@ public class PlayerParser {
         return extractor.extractString(json, "position");
     }
 
-    private int parseJerseyNumber(JsonObject json) {
-        return extractor.extractInt(json, "jerseyNumber");
+    private LocalDateTime parseDateOfBirth(JsonObject json) {
+        return extractor.extractDateTime(json, "dateOfBirth");
     }
 
-    private LocalDate parseDateOfBirth(JsonObject json) {
-        return extractor.extractLocalDate(json, "dateOfBirth");
+    private String parseCountryOfBirth(JsonObject json) {
+        return extractor.extractString(json, "countryOfBirth");
+    }
+
+    private String parseRole(JsonObject json) {
+        return extractor.extractString(json, "role");
     }
 
     private String parseNationality(JsonObject json) {
         return extractor.extractString(json, "nationality");
     }
-
-    private LocalDate parseContractUntil(JsonObject json) {
-        return extractor.extractLocalDate(json, "contractUntil", LocalDate.MAX);
-    }
-
-    private BigDecimal parseMarketValue(JsonObject json) {
-        return extractor.extractBigDecimal(json, "marketValue");
-    }
-    
 }

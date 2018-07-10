@@ -9,6 +9,8 @@ public interface EndpointProviderService {
     
     String getStandings(int competitionId);
 
+    String getTeams();
+    
     String getTeams(int competitionId);
 
     String getTeam(int teamId);

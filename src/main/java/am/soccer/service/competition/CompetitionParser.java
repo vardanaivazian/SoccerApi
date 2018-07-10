@@ -25,17 +25,16 @@ public class CompetitionParser {
     }
 
     public Competition toCompetition(JsonObject json) {
-        System.out.println("json object: " + json.toString());
         return new Competition.CompetitionBuilder()
-                .Id(parseId(json))
-                .Area(parseArea(json))
-                .Name(parseName(json))
-                .Plan(parsePlan(json))
-                .Code(parseCode(json))
-                .CurrentSeason(parseSeason(extractor.extractJson(json, "currentSeason")))
-                .NumberOfAvailableSeasons(parseNumberOfAvailableSeasons(json))
-                .Seasons(parseSeasons(json))
-                .LastUpdated(parseLastUpdated(json))
+                .id(parseId(json))
+                .area(parseArea(json))
+                .name(parseName(json))
+                .plan(parsePlan(json))
+                .code(parseCode(json))
+                .currentSeason(parseSeason(extractor.extractJson(json, "currentSeason")))
+                .numberOfAvailableSeasons(parseNumberOfAvailableSeasons(json))
+                .seasons(parseSeasons(json))
+                .lastUpdated(parseLastUpdated(json))
                 .build();
     }
 
@@ -53,10 +52,10 @@ public class CompetitionParser {
 
     private Season parseSeason(JsonObject json) {
         return new Season.SeasonBuilder()
-                .Id(parseId(json))
-                .CurrentMatchDay(parseCurrentMatchDay(json))
-                .StartDate(parseStartDate(json))
-                .EndDate(parseEndDate(json))
+                .id(parseId(json))
+                .currentMatchDay(parseCurrentMatchDay(json))
+                .startDate(parseStartDate(json))
+                .endDate(parseEndDate(json))
                 .build();
     }
 
@@ -100,6 +99,5 @@ public class CompetitionParser {
     private LocalDateTime parseLastUpdated(JsonObject json) {
         return extractor.extractDateTime(json, "lastUpdated");
     }
-
-
+    
 }

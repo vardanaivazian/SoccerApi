@@ -39,22 +39,22 @@ public class Season {
         private LocalDate endDate;
         private int currentMatchDay;
 
-        public SeasonBuilder Id(int id) {
+        public SeasonBuilder id(int id) {
             this.id = id;
             return this;
         }
 
-        public SeasonBuilder StartDate(LocalDate startDate) {
+        public SeasonBuilder startDate(LocalDate startDate) {
             this.startDate = startDate;
             return this;
         }
 
-        public SeasonBuilder EndDate(LocalDate endDate) {
+        public SeasonBuilder endDate(LocalDate endDate) {
             this.endDate = endDate;
             return this;
         }
 
-        public SeasonBuilder CurrentMatchDay(int currentMatchDay) {
+        public SeasonBuilder currentMatchDay(int currentMatchDay) {
             this.currentMatchDay = currentMatchDay;
             return this;
         }
