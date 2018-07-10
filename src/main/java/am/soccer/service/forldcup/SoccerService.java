@@ -1,4 +1,4 @@
-package am.soccer.service;
+package am.soccer.service.forldcup;
 
 public interface SoccerService {
 

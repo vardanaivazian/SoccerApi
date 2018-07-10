@@ -1,6 +1,6 @@
 package am.soccer.controller;
 
-import am.soccer.service.SoccerService;
+import am.soccer.service.forldcup.SoccerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +15,4 @@ public class SoccerRestApiController {
     public String getJson() {
         return soccerService.getSoccerJson();
     }
-    
-    
-    
 }

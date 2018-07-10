@@ -10,7 +10,7 @@ import static org.apache.commons.lang3.StringUtils.EMPTY;
 @Service
 public class TokenProviderServiceImpl implements TokenProviderService {
 
-    private static final String TOKEN_VARIABLE_NAME = "e53308bbe6a24feeaf6459c87b066b58";
+    private static final String TOKEN_VARIABLE_NAME = "YOUR_TOKEN";
 
     @Override
     public String getToken() {

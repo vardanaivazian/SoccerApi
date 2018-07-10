@@ -1,4 +1,4 @@
-package am.soccer.service;
+package am.soccer.service.forldcup;
 
 import org.springframework.stereotype.Service;
 
