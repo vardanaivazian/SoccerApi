@@ -16,7 +16,6 @@ public class TeamParser {
 
     private final JsonParser parser = new JsonParser();
     private final JsonExtractor extractor = new JsonExtractor();
-    private final TeamUrlConverter teamUrlConverter = new TeamUrlConverter();
 
     public Team toTeam(String jsonString) {
         JsonElement element = parser.parse(jsonString);
@@ -25,7 +24,7 @@ public class TeamParser {
     }
 
     public Team toTeam(JsonObject json) {
-        return new Team.TeamBuilder()
+        return Team.builder()
                 .id(parseId(json))
                 .area(parseArea(json))
                 .name(parseName(json))
@@ -49,9 +48,9 @@ public class TeamParser {
     
     private Area parseArea(JsonObject json) {
         JsonObject area = extractor.extractJson(json, "area");
-        return new Area.AreaBuilder()
-                .Id(parseId(area))
-                .Name(parseName(area))
+        return Area.builder()
+                .id(parseId(area))
+                .name(parseName(area))
                 .build();
     }
 
@@ -104,7 +103,7 @@ public class TeamParser {
     }
     
     private Player parsePlayer(JsonObject json) {
-        return new Player.PlayerBuilder()
+        return Player.builder()
                 .id(parseId(json))
                 .name(parseName(json))
                 .nationality(parseNationality(json))

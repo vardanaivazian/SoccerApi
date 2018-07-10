@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class StandingServiceImpl implements StandingService {
-
-    //    http://api.football-data.org/v2/competitions/2014/standings
     
     @Autowired
     private RestClientService restClientService;

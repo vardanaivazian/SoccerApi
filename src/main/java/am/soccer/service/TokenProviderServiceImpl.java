@@ -3,10 +3,6 @@ package am.soccer.service;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.Map;
-
-import static org.apache.commons.lang3.StringUtils.EMPTY;
-
 @Service
 public class TokenProviderServiceImpl implements TokenProviderService {
 
@@ -22,5 +18,4 @@ public class TokenProviderServiceImpl implements TokenProviderService {
         String token = getToken();
         return StringUtils.isNotEmpty(token);
     }
-
 }

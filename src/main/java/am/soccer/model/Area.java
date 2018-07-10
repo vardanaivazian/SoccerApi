@@ -5,7 +5,7 @@ public class Area {
     private int id;
     private String name;
 
-    public Area(AreaBuilder areaBuilder) {
+    private Area(AreaBuilder areaBuilder) {
         this.id = areaBuilder.id;
         this.name = areaBuilder.name;
     }
@@ -26,16 +26,20 @@ public class Area {
         this.name = name;
     }
     
+    public static AreaBuilder builder() {
+        return new AreaBuilder();
+    }
+    
     public static class AreaBuilder {
         private int id;
         private String name;
         
-        public AreaBuilder Id(int id) {
+        public AreaBuilder id(int id) {
             this.id = id;
             return this;
         }
         
-        public AreaBuilder Name(String name) {
+        public AreaBuilder name(String name) {
             this.name = name;
             return this;
         }

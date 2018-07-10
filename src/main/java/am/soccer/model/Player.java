@@ -13,7 +13,7 @@ public class Player {
     private final String role;
 
     private Player(PlayerBuilder builder) {
-        
+
         this.id = builder.id;
         this.name = builder.name;
         this.position = builder.position;
@@ -52,6 +52,10 @@ public class Player {
         return role;
     }
 
+    public static PlayerBuilder builder() {
+        return new PlayerBuilder();
+    }
+
     public static class PlayerBuilder {
 
         private int id;
@@ -67,7 +71,7 @@ public class Player {
             return this;
         }
 
-        
+
         public PlayerBuilder name(String name) {
             this.name = name;
             return this;
@@ -82,7 +86,7 @@ public class Player {
             this.dateOfBirth = dateOfBirth;
             return this;
         }
-        
+
         public PlayerBuilder countryOfBirth(String countryOfBirth) {
             this.countryOfBirth = countryOfBirth;
             return this;
@@ -104,5 +108,5 @@ public class Player {
         }
 
     }
-    
+
 }

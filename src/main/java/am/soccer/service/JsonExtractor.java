@@ -1,6 +1,5 @@
 package am.soccer.service;
 
-import am.soccer.model.FixtureStatus;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -99,11 +98,6 @@ public class JsonExtractor {
         if (json.get(name).isJsonNull()) return LocalDate.MAX;
         String dateString = json.get(name).getAsString();
         return LocalDate.parse(dateString, localDateFormatter);
-    }
-
-    public FixtureStatus extractFixtureStatus(JsonObject json, String name) {
-        String statusString = json.get(name).getAsString();
-        return FixtureStatus.valueOf(statusString);
     }
     
 }

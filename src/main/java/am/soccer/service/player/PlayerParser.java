@@ -6,7 +6,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class PlayerParser {
@@ -21,7 +20,7 @@ public class PlayerParser {
     }
 
     public Player toPlayer(JsonObject json) {
-        return new Player.PlayerBuilder()
+        return Player.builder()
                 .id(parseId(json))
                 .name(parseName(json))
                 .position(parsePosition(json))

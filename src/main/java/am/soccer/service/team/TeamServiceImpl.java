@@ -2,7 +2,6 @@ package am.soccer.service.team;
 
 import am.soccer.model.Team;
 import am.soccer.service.EndpointProviderService;
-import am.soccer.service.HttpClientService;
 import am.soccer.service.RestClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

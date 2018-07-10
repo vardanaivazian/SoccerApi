@@ -63,6 +63,10 @@ public class Competition {
         return lastUpdated;
     }
 
+    public static CompetitionBuilder builder() {
+        return new CompetitionBuilder();
+    }
+    
     public static class CompetitionBuilder {
 
         private int id;

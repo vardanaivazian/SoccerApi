@@ -20,7 +20,7 @@ public class Team {
     private final List<Player> squad;
     private final LocalDateTime lastUpdated;
 
-    public Team(TeamBuilder builder) {
+    private Team(TeamBuilder builder) {
         this.id = builder.id;
         this.area = builder.area;
         this.name = builder.name;
@@ -93,6 +93,10 @@ public class Team {
         return lastUpdated;
     }
 
+    public static TeamBuilder builder() {
+        return new TeamBuilder();
+    }
+    
     public static class TeamBuilder {
 
         private int id;

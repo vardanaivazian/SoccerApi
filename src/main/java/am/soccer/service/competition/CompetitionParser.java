@@ -25,7 +25,7 @@ public class CompetitionParser {
     }
 
     public Competition toCompetition(JsonObject json) {
-        return new Competition.CompetitionBuilder()
+        return Competition.builder()
                 .id(parseId(json))
                 .area(parseArea(json))
                 .name(parseName(json))
@@ -44,14 +44,14 @@ public class CompetitionParser {
 
     private Area parseArea(JsonObject json) {
         JsonObject area = extractor.extractJson(json, "area");
-        return new Area.AreaBuilder()
-                .Id(parseId(area))
-                .Name(parseName(area))
+        return Area.builder()
+                .id(parseId(area))
+                .name(parseName(area))
                 .build();
     }
 
     private Season parseSeason(JsonObject json) {
-        return new Season.SeasonBuilder()
+        return Season.builder()
                 .id(parseId(json))
                 .currentMatchDay(parseCurrentMatchDay(json))
                 .startDate(parseStartDate(json))

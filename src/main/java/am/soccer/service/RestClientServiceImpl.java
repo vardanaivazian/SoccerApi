@@ -15,8 +15,6 @@ public class RestClientServiceImpl implements RestClientService {
     private RestTemplate rest;
     private HttpHeaders headers;
     private HttpStatus status;
-    
-    private TokenProviderService tokenProviderService;
 
     public RestClientServiceImpl() {
         this.rest = new RestTemplate();
@@ -28,7 +26,6 @@ public class RestClientServiceImpl implements RestClientService {
 
     @Autowired
     public void setTokenProviderService(TokenProviderService tokenProviderService) {
-        this.tokenProviderService = tokenProviderService;
         this.headers.add("X-Auth-Token", tokenProviderService.getToken());
     }
 
