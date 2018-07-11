@@ -1,6 +1,6 @@
 #SoccerApi
 
-SoccerApi is Spring Boot rest Api, that implementation of <a href="//www.football-data.org" target="_blank">football-data.org</a> .
+SoccerApi is Spring Boot rest Api, that implementation of www.football-data.org.
 
 Rest Api endpoints
 
