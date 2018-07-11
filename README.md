@@ -1,5 +1,7 @@
 # SoccerApi
 
+[![Build Status](https://travis-ci.org/vardanaivazian/SoccerApi.svg?branch=master)](https://travis-ci.org/vardanaivazian/SoccerApi)
+
 SoccerApi is Spring Boot rest Api, that implementation of [Football Data API](https://www.football-data.org/ "Football Data API") (**v2**) .
 
 
