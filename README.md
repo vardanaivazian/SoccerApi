@@ -1,5 +1,6 @@
 # SoccerApi
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b859e86d2b71448896bf710434d4b723)](https://app.codacy.com/app/vardanaivazian/SoccerApi?utm_source=github.com&utm_medium=referral&utm_content=vardanaivazian/SoccerApi&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/vardanaivazian/SoccerApi.svg?branch=master)](https://travis-ci.org/vardanaivazian/SoccerApi)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vardanaivazian/SoccerApi/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vardanaivazian/SoccerApi/?branch=master)
 
