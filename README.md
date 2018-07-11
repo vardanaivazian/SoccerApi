@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/vardanaivazian/SoccerApi.svg?branch=master)](https://travis-ci.org/vardanaivazian/SoccerApi)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vardanaivazian/SoccerApi/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vardanaivazian/SoccerApi/?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7e836dca2c3f4c42b0e38a13494c808e)](https://www.codacy.com/app/vardanaivazian/SoccerApi?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=vardanaivazian/SoccerApi&amp;utm_campaign=Badge_Grade)
 
 SoccerApi is Spring Boot rest Api, that implementation of [Football Data API](https://www.football-data.org/ "Football Data API") (**v2**) .
 
