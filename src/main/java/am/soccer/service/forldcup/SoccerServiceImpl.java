@@ -12,12 +12,12 @@ import java.net.URL;
 public class SoccerServiceImpl implements SoccerService {
 
     @Override
-    public String getSoccerJson() {
+    public String getSoccerJson(int year) {
         URL url;
         HttpURLConnection con;
         StringBuilder content = new StringBuilder("");
         try {
-            url = new URL("https://raw.githubusercontent.com/openfootball/world-cup.json/master/2018/worldcup.json");
+            url = new URL("https://raw.githubusercontent.com/openfootball/world-cup.json/master/" + year + "/worldcup.json");
             con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
 
